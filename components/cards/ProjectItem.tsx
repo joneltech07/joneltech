@@ -13,9 +13,11 @@ export default function ProjectItem({ vidId, title, desc, className=""}: Project
   return (
     <div className={cn('flex gap-3 rounded overflow-hidden', className)}>
         <YouTubeEmbed videoid={vidId} height={400} width={720} />
-        <div className='p-3 w-[720px]'>
+        <div className='p-3 w-[720px] flex flex-col'>
             <p className='font-bold text-2xl'>{title}</p>
-            <p className='text-[20px]'>{desc}</p>
+            <div className='flex-1 flex items-center'>
+                <p className='text-[20px]'>{desc}</p>
+            </div>
         </div>
     </div>
   )
