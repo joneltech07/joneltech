@@ -10,8 +10,8 @@ export default function TechLogo() {
                 key={idx}
                 src={`/images/${item}`}
                 alt="html"
-                width={100}
-                height={100}
+                width={50}
+                height={50}
                 className="object-contain"
                 />
         ))}

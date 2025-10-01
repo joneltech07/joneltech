@@ -18,10 +18,10 @@ export default function Home() {
           <div className="flex-1/2 flex justify-center">
             <div className="rounded-full overflow-hidden">
               <Image
-                src="/images/profile-photo.jpg"
+                src="/images/profile-photo.png"
                 alt="Profile Photo"
-                width={500}
-                height={500}
+                width={400}
+                height={400}
                 className="object-contain"
               />
             </div>
@@ -31,7 +31,7 @@ export default function Home() {
 
       <section className="py-[200px]">
         <div className="text-center space-y-3 px-6 sm:px-14">
-          <p className="font-bold text-5xl text-[#0a2c42]">My Tech Stack</p>
+          <p className="font-bold text-3xl text-[#0a2c42]">My Tech Stack</p>
           <p className="text-3xl text-gray-500">Technologies I&apos;ve been working with recently</p>
 
           <TechLogo />
@@ -40,7 +40,7 @@ export default function Home() {
 
       <section>
         <div className="text-center space-y-3 px-6 sm:px-14">
-          <p className="font-bold text-5xl text-[#0a2c42]">Projects</p>
+          <p className="font-bold text-3xl text-[#0a2c42]">Projects</p>
           <p className="text-3xl text-gray-500">Things I&apos;ve buid so far</p>
 
           <Project />
