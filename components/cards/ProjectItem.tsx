@@ -15,10 +15,10 @@ export default function ProjectItem({ vidId, title, desc, className=""}: Project
       <div className='rounded-2xl overflow-hidden w-auto'>
         <YouTubeEmbed videoid={vidId} height={200} width={360} />
       </div>
-        <div className='p-3 flex flex-col w-[460px] text-start'>
-            <p className='font-bold text-2xl'>{title}</p>
-            <div className='flex-1 flex items-center'>
-                <p className='text-[15px]'>{desc}</p>
+        <div className='p-3 flex flex-col gap-3 w-[460px] text-start'>
+            <p className='font-bold text-1xl'>{title}</p>
+            <div className='flex-1 flex'>
+                <p className='text-xs'>{desc}</p>
             </div>
         </div>
     </div>
