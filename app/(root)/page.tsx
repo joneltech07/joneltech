@@ -5,8 +5,6 @@ import Image from "next/image";
 
 export default function Home() {
 
-  const techLogos = ['html.png', 'css.png', 'javascript.png', 'reactjs.png', 'laravel.png', 'nextjs.png', 'tailwindcss.png', 'vuejs.png', 'wordpress.png', 'vscode.jpg', 'github.png', 'mysql.png'];
-
   return (
     <>
       <section>
@@ -23,6 +21,8 @@ export default function Home() {
                 width={400}
                 height={400}
                 className="object-contain"
+                priority
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
