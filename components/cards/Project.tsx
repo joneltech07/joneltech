@@ -5,14 +5,14 @@ import { cn } from '@/lib/utils'
 
 export default function Project() {
   return (
-    <div className='mt-[50px] mb-[50px] w-auto flex flex-col gap-5 justify-center items-center'>
+    <div className='my-[10px] md:my-[50px] w-auto flex flex-col justify-center items-center'>
         {ytCardDetails.map(({id, title, desc}, idx) => (
             <ProjectItem 
                 key={idx} 
                 vidId={id} 
                 title={title} 
                 desc={desc} 
-                className={cn(idx % 2 === 0 ? "flex-row-reverse" : "flex-row")}
+                className={cn("flex flex-col justify-between md:max-w-[90%] lg:w-[1000px] my-[10px] md:my-[50px]", idx % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row")}
             />
         ))}
     </div>

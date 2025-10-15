@@ -5,18 +5,16 @@ import Image from "next/image";
 
 export default function Home() {
 
-  const techLogos = ['html.png', 'css.png', 'javascript.png', 'reactjs.png', 'laravel.png', 'nextjs.png', 'tailwindcss.png', 'vuejs.png', 'wordpress.png', 'vscode.jpg', 'github.png', 'mysql.png'];
-
   return (
     <>
       <section>
         <div className="flex flex-wrap justify-center px-6 pb-6 pt-10 sm:px-14">
           <div className="flex flex-wrap md:flex-nowrap flex-1/2 justify-center items-center">
             <LottieClientWrapper />
-            <p className="text-gray-500 text-wrap text-[28px] font-normal">I&apos;m here to support your business through web development, offering solutions and a commitment to <span className="font-bold text-7xl text-[#0d97c5]">Excellence</span></p>
+            <p className="text-center md:text-start text-gray-500 text-wrap md:text-[28px] font-normal">I&apos;m here to support your business through web development, offering solutions and a commitment to <span className="font-bold text-2xl md:text-7xl text-[#0d97c5]">Excellence</span></p>
           </div>
           <div className="flex-1/2 flex justify-center">
-            <div className="rounded-full overflow-hidden">
+            <div className="rounded-full overflow-hidden hidden md:block">
               <Image
                 src="/images/profile-photo.png"
                 alt="Profile Photo"
