@@ -22,7 +22,6 @@ export default function Home() {
                 height={400}
                 className="object-contain"
                 priority
-                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>

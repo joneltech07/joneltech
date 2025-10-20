@@ -1,6 +1,8 @@
 import { cn } from '@/lib/utils';
-import { YouTubeEmbed } from '@next/third-parties/google'
-import React from 'react'
+import { YouTubeEmbed } from '@next/third-parties/google';
+import React, { useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 interface ProjectItemProps {
     vidId: string;
@@ -10,12 +12,43 @@ interface ProjectItemProps {
 }
 
 export default function ProjectItem({ vidId, title, desc, className=""}: ProjectItemProps) {
+  const containerRef = useRef(null);
+  const videoRef = useRef(null);
+  const textRef = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const isReversed = className.includes("md:flex-row-reverse");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "center center",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+
+    if (isReversed) {
+      tl.to(videoRef.current, { x: 500, opacity: 0, duration: 1 })
+        .to(textRef.current, { x: -500, opacity: 0, duration: 1 }, "<");
+    } else {
+      tl.to(videoRef.current, { x: -500, opacity: 0, duration: 1 })
+        .to(textRef.current, { x: 500, opacity: 0, duration: 1 }, "<");
+    }
+
+    return () => {
+      tl.kill();
+    };
+  }, [className]);
+
   return (
-    <div className={cn('overflow-hidden', className)}>
-      <div className='hidden md:block w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl'>
+    <div ref={containerRef} className={cn('overflow-hidden flex flex-col justify-center items-center', className)}>
+      <div ref={videoRef} className='hidden md:block w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl'>
         <YouTubeEmbed videoid={vidId} height={200} width={360} />
       </div>
-      <div className='p-3 md:w-[500px] flex flex-col gap-3 text-start'>
+      <div ref={textRef} className='p-3 md:w-[500px] flex flex-col gap-3 text-start'>
         <p className='font-bold text-1xl'>{title}</p>
         <div className='flex-1 flex'>
           <p className='text-xs'>{desc}</p>
