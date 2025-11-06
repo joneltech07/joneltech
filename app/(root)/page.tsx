@@ -1,12 +1,14 @@
 import Project from "@/components/cards/Project";
 import TechLogo from "@/components/cards/TechLogo";
 import LottieClientWrapper from "@/components/lotties/LottieClientWrapper";
+import ParallaxImage from "@/components/ParallaxImage";
+import ReactLenis from "lenis/react";
 import Image from "next/image";
 
 export default function Home() {
 
   return (
-    <>
+    <ReactLenis root>
       <section>
         <div className="flex flex-wrap justify-center px-6 pb-6 pt-10 sm:px-14">
           <div className="flex flex-wrap md:flex-nowrap flex-1/2 justify-center items-center">
@@ -15,13 +17,13 @@ export default function Home() {
           </div>
           <div className="flex-1/2 flex justify-center">
             <div className="rounded-full overflow-hidden hidden md:block">
-              <Image
+              <ParallaxImage
                 src="/images/profile-photo.png"
                 alt="Profile Photo"
                 width={400}
                 height={400}
-                className="object-contain"
-                priority
+                // className="object-contain"
+                priority={true}
               />
             </div>
           </div>
@@ -38,13 +40,13 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="text-center space-y-3 px-6 sm:px-14">
+        <div className="text-center space-y-3">
           <p className="font-bold text-3xl text-[#0a2c42]">Projects</p>
           <p className="text-3xl text-gray-500">Things I&apos;ve buid so far</p>
 
           <Project />
         </div>
       </section>
-    </>
+    </ReactLenis>
   );
 }

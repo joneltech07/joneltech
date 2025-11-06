@@ -24,18 +24,18 @@ export default function ProjectItem({ vidId, title, desc, className=""}: Project
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "center center",
+        start: "center 30%",
         end: "bottom top",
         scrub: true,
       }
     });
 
     if (isReversed) {
-      tl.to(videoRef.current, { x: 500, opacity: 0, duration: 1 })
-        .to(textRef.current, { x: -500, opacity: 0, duration: 1 }, "<");
+      tl.to(videoRef.current, { x: 500, opacity: 0, duration: 1.5 })
+        .to(textRef.current, { x: -500, opacity: 0, duration: 1.5 }, "<");
     } else {
-      tl.to(videoRef.current, { x: -500, opacity: 0, duration: 1 })
-        .to(textRef.current, { x: 500, opacity: 0, duration: 1 }, "<");
+      tl.to(videoRef.current, { x: -500, opacity: 0, duration: 1.5 })
+        .to(textRef.current, { x: 500, opacity: 0, duration: 1.5 }, "<");
     }
 
     return () => {

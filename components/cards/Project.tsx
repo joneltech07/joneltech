@@ -15,7 +15,7 @@ export default function Project() {
                 vidId={id} 
                 title={title} 
                 desc={desc} 
-                className={cn("flex flex-col justify-between md:max-w-[90%] lg:w-[1000px] my-[10px] md:my-[50px]", idx % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row")}
+                className={cn("flex flex-col justify-evenly w-full my-[10px] md:my-[50px]", idx % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row")}
             />
         ))}
     </div>
