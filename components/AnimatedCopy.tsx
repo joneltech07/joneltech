@@ -12,7 +12,7 @@ type SplitResult = {
 export default function AnimatedCopy({
   children,
   colorInitial = "#aba9a9",
-  colorAccent = "abff02",
+  colorAccent = "#0d97c5",
   colorFinal = "#000000",
 }: {
   children: React.ReactNode;
