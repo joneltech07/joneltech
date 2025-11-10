@@ -5,11 +5,22 @@ import LottieClientWrapper from "@/components/lotties/LottieClientWrapper";
 import Image from "next/image";
 import { useTransform, motion } from "framer-motion";
 
-export default function Home({ scrollYProgress }) {
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+type HomeProps = {
+  scrollYProgress?: unknown;
+};
+
+const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
+  { scrollYProgress },
+  ref
+) {
+  const scale = useTransform(scrollYProgress as any, [0, 1], [1, 0.8]);
+  const rotate = useTransform(scrollYProgress as any, [0, 1], [0, -5]);
   return (
-    <motion.div style={{ scale, rotate }} className="h-screen sticky top-0">
+    <motion.div
+      ref={ref as React.Ref<HTMLDivElement>}
+      style={{ scale, rotate }}
+      className="h-screen sticky top-0"
+    >
       <div className="flex flex-wrap justify-center px-6 pb-6 pt-10 sm:px-14">
         <div className="flex flex-wrap md:flex-nowrap flex-1/2 justify-center items-center">
           <LottieClientWrapper />
@@ -36,4 +47,6 @@ export default function Home({ scrollYProgress }) {
       </div>
     </motion.div>
   );
-}
+});
+
+export default Home;

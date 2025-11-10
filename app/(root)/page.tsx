@@ -4,11 +4,12 @@ import AboutMe from "@/components/AboutMe";
 import AnimatedCopy from "@/components/AnimatedCopy";
 import Project from "@/components/cards/Project";
 import TechLogo from "@/components/cards/TechLogo";
-import Home from "@/components/Home";
 import { useScroll } from "framer-motion";
 import ReactLenis from "lenis/react";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import Home from "../Home/page";
+import { initializeRefsStore } from "@/store/useMenuStore";
 
 export default function Index() {
   const container = useRef<HTMLElement | null>(null);
@@ -16,6 +17,19 @@ export default function Index() {
     target: container,
     offset: ["start start", "end end"],
   });
+
+  const homeRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const stackRef = useRef<HTMLDivElement | null>(null);
+  const projectRef = useRef<HTMLDivElement | null>(null);
+
+  // Map section names to their corresponding Refs
+  const sectionRefs = {
+    home: container,
+    about: aboutRef,
+    stack: stackRef,
+    projects: projectRef,
+  };
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -26,16 +40,21 @@ export default function Index() {
     }
 
     requestAnimationFrame(raf);
+
+    initializeRefsStore(sectionRefs);
   }, []);
 
   return (
     <ReactLenis root>
       <main ref={container} className="relative h-[200vh]">
-        <Home scrollYProgress={scrollYProgress} />
+        <Home ref={homeRef} scrollYProgress={scrollYProgress} />
 
-        <AboutMe scrollYProgress={scrollYProgress} />
+        <AboutMe ref={aboutRef} scrollYProgress={scrollYProgress} />
 
-        <section className="py-[200px]">
+        <section
+          ref={stackRef}
+          className="h-screen flex items-center justify-center"
+        >
           <div className="text-center space-y-3 px-6 sm:px-14">
             <p className="font-bold text-3xl text-[#0a2c42]">My Tech Stack</p>
 
@@ -49,7 +68,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section>
+        <section ref={projectRef} className="py-[50px]">
           <div className="text-center space-y-3">
             <p className="font-bold text-3xl text-[#0a2c42]">Projects</p>
 

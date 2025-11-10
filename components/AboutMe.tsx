@@ -5,17 +5,28 @@ import AnimatedCopy from "./AnimatedCopy";
 import Image from "next/image";
 import { useTransform, motion } from "framer-motion";
 
-export default function AboutMe({ scrollYProgress }) {
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
+type AboutProps = {
+  scrollYProgress?: unknown;
+};
+
+const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
+  { scrollYProgress },
+  ref
+) {
+  const scale = useTransform(scrollYProgress as any, [0, 1], [0.8, 1]);
+  const rotate = useTransform(scrollYProgress as any, [0, 1], [5, 0]);
 
   return (
-    <motion.div style={{ scale, rotate }} className="h-screen">
+    <motion.div
+      ref={ref as React.Ref<HTMLDivElement>}
+      style={{ scale, rotate }}
+      className="h-screen py-[20px]"
+    >
       <div className="text-center space-y-3 px-6 sm:px-14">
         <p className="font-bold text-3xl text-[#0a2c42]">About Me</p>
 
         <div className="relative">
-          <div className="rounded-3xl bg-[#0a2c42] p-[100px]">
+          <div className="rounded-3xl bg-[#0a2c42] p-[120px]">
             <div className="w-full flex">
               <div className="flex flex-3 flex-col">
                 <AnimatedCopy
@@ -28,8 +39,7 @@ export default function AboutMe({ scrollYProgress }) {
                     specializing in performance optimization and system
                     modernization. Seeking a challenging Web Developer role to
                     leverage proven expertise across Laravel, React, Next.js,
-                    and Vue.js to build scalable solutions and migrate legacy
-                    systems.
+                    and Vue.js to build scalable solutions.
                   </p>
                 </AnimatedCopy>
 
@@ -54,4 +64,6 @@ export default function AboutMe({ scrollYProgress }) {
       </div>
     </motion.div>
   );
-}
+});
+
+export default AboutMe;
