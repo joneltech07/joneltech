@@ -14,7 +14,7 @@ export default function Index({ data, isActive, setSelectedIndicator }) {
 
   const handleClick = (e) => {
     // Prevent default anchor link behavior
-    // e.preventDefault();
+    e.preventDefault();
 
     // 1. Call the store's action to scroll
     scrollToSection(href);

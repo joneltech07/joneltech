@@ -12,6 +12,8 @@ import { initializeRefsStore } from "@/store/useMenuStore";
 import AboutMe from "../AboutMe/page";
 import AnimatedText from "@/components/AnimatedText";
 import Experience from "../Experience/page";
+import { certfificates } from "@/constants/certificates";
+import Certificate from "@/components/cards/Certificate";
 
 export default function Index() {
   const container = useRef<HTMLElement | null>(null);
@@ -93,6 +95,30 @@ export default function Index() {
             </AnimatedCopy>
           </div>
           <Project />
+        </section>
+
+        <section className="flex flex-col relative bg-gray-50">
+          <AnimatedText
+            once
+            text="Certification"
+            className="font-bold text-3xl text-center text-[#0a2c42] sticky top-1 py-10"
+          />
+
+          <div className="relative">
+            {certfificates.map((project, i) => {
+              const targetScale = 1 - (certfificates.length - i) * 0.05;
+              return (
+                <Certificate
+                  key={`p_${i}`}
+                  i={i}
+                  {...project}
+                  progress={scrollYProgress}
+                  range={[i * 0.25, 1]}
+                  targetScale={targetScale}
+                />
+              );
+            })}
+          </div>
         </section>
       </main>
     </ReactLenis>
