@@ -11,6 +11,7 @@ import Home from "../Home/page";
 import { initializeRefsStore } from "@/store/useMenuStore";
 import AboutMe from "../AboutMe/page";
 import AnimatedText from "@/components/AnimatedText";
+import Experience from "../Experience/page";
 
 export default function Index() {
   const container = useRef<HTMLElement | null>(null);
@@ -22,6 +23,7 @@ export default function Index() {
   const homeRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const stackRef = useRef<HTMLDivElement | null>(null);
+  const experienceRef = useRef<HTMLDivElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
 
   // Map section names to their corresponding Refs
@@ -29,6 +31,7 @@ export default function Index() {
     home: container,
     about: aboutRef,
     stack: stackRef,
+    experience: experienceRef,
     projects: projectRef,
   };
 
@@ -73,7 +76,9 @@ export default function Index() {
           </div>
         </section>
 
-        <section ref={projectRef} className="py-[50px]">
+        <Experience ref={experienceRef} />
+
+        <section ref={projectRef} className="py-[200px]">
           <div className="text-center space-y-3">
             <AnimatedText
               once

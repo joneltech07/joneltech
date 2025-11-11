@@ -22,6 +22,10 @@ const navItems = [
     href: "stack",
   },
   {
+    title: "Experience",
+    href: "experience",
+  },
+  {
     title: "Projects",
     href: "projects",
   },
