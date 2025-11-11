@@ -7,7 +7,7 @@ export default function Experience({ ref }) {
   return (
     <section
       ref={ref}
-      className="py-[20px] flex items-center flex-col space-y-3 gap-4 px-6 sm:px-14"
+      className="py-[200px] flex items-center flex-col space-y-3 gap-4 px-6 sm:px-14"
     >
       <AnimatedText
         once

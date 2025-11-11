@@ -63,7 +63,7 @@ export default function ProjectItem({
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "center 30%",
+        start: "start 10%",
         end: "bottom top",
         scrub: true,
       },
@@ -113,8 +113,11 @@ export default function ProjectItem({
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="w-[150px]">
-              Show more
+            <Button
+              variant="outline"
+              className="w-[100px] h-7 text-xs rounded-full"
+            >
+              More details
             </Button>
           </DialogTrigger>
           <DialogContent
@@ -181,7 +184,7 @@ export default function ProjectItem({
                     <CarouselNext />
                   </Carousel>
                 ) : (
-                  <div className="hidden md:block w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl">
+                  <div className="hidden md:flex md:justify-center w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl">
                     {more?.id && (
                       <YouTubeEmbed
                         videoid={more.id}

@@ -57,17 +57,17 @@ export default function Index() {
 
         <section
           ref={stackRef}
-          className="h-screen flex items-center justify-center"
+          className="h-screen flex items-center justify-center bg-[#194660]"
         >
           <div className="text-center space-y-3 px-6 sm:px-14">
             <AnimatedText
               once
               text="My Tech Stack"
-              className="font-bold text-3xl text-[#0a2c42]"
+              className="font-bold text-3xl text-white"
             />
 
-            <AnimatedCopy>
-              <p className="text-3xl text-gray-300">
+            <AnimatedCopy colorFinal="#f2f2f2">
+              <p className="text-3xl">
                 Technologies I&apos;ve been working with recently
               </p>
             </AnimatedCopy>
@@ -78,22 +78,21 @@ export default function Index() {
 
         <Experience ref={experienceRef} />
 
-        <section ref={projectRef} className="py-[200px]">
-          <div className="text-center space-y-3">
+        <section ref={projectRef}>
+          <div className="text-center space-y-3 bg-[#194660] h-60 flex flex-col justify-center">
             <AnimatedText
               once
               text="Projects"
-              className="font-bold text-3xl text-[#0a2c42]"
+              className="font-bold text-3xl text-white"
             />
 
-            <AnimatedCopy>
+            <AnimatedCopy colorFinal="#f2f2f2">
               <p className="text-3xl text-gray-300">
                 Things I&apos;ve buid so far
               </p>
             </AnimatedCopy>
-
-            <Project />
           </div>
+          <Project />
         </section>
       </main>
     </ReactLenis>
