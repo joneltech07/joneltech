@@ -4,6 +4,7 @@ import React from "react";
 import LottieClientWrapper from "@/components/lotties/LottieClientWrapper";
 import Image from "next/image";
 import { useTransform, motion } from "framer-motion";
+import FadeInOnScroll from "@/components/FadeInOnScroll";
 
 type HomeProps = {
   scrollYProgress?: unknown;
@@ -22,7 +23,11 @@ const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
       className="h-screen sticky top-0"
     >
       <div className="flex flex-wrap justify-center px-6 pb-6 pt-10 sm:px-14">
-        <div className="flex flex-wrap md:flex-nowrap flex-1/2 justify-center items-center">
+        <FadeInOnScroll
+          delay={0.1}
+          yOffset={10}
+          className="flex flex-wrap md:flex-nowrap flex-1/2 justify-center items-center"
+        >
           <LottieClientWrapper />
           <p className="text-center md:text-start text-gray-500 text-wrap md:text-[28px] font-normal">
             I&apos;m here to support your business through web development,
@@ -31,17 +36,19 @@ const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
               Excellence
             </span>
           </p>
-        </div>
+        </FadeInOnScroll>
         <div className="flex-1/2 flex justify-center">
           <div className="rounded-full overflow-hidden hidden md:block">
-            <Image
-              src="/images/profile-id.jpg"
-              alt="Profile Photo"
-              width={400}
-              height={400}
-              className="object-contain"
-              priority={true}
-            />
+            <FadeInOnScroll delay={0.3} yOffset={100} duration={1.2}>
+              <Image
+                src="/images/profile-id.jpg"
+                alt="Profile Photo"
+                width={400}
+                height={400}
+                className="object-contain"
+                priority={true}
+              />
+            </FadeInOnScroll>
           </div>
         </div>
       </div>

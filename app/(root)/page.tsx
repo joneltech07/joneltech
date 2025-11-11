@@ -1,6 +1,5 @@
 "use client";
 
-import AboutMe from "@/components/AboutMe";
 import AnimatedCopy from "@/components/AnimatedCopy";
 import Project from "@/components/cards/Project";
 import TechLogo from "@/components/cards/TechLogo";
@@ -10,6 +9,8 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import Home from "../Home/page";
 import { initializeRefsStore } from "@/store/useMenuStore";
+import AboutMe from "../AboutMe/page";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function Index() {
   const container = useRef<HTMLElement | null>(null);
@@ -56,7 +57,11 @@ export default function Index() {
           className="h-screen flex items-center justify-center"
         >
           <div className="text-center space-y-3 px-6 sm:px-14">
-            <p className="font-bold text-3xl text-[#0a2c42]">My Tech Stack</p>
+            <AnimatedText
+              once
+              text="My Tech Stack"
+              className="font-bold text-3xl text-[#0a2c42]"
+            />
 
             <AnimatedCopy>
               <p className="text-3xl text-gray-300">
@@ -70,7 +75,11 @@ export default function Index() {
 
         <section ref={projectRef} className="py-[50px]">
           <div className="text-center space-y-3">
-            <p className="font-bold text-3xl text-[#0a2c42]">Projects</p>
+            <AnimatedText
+              once
+              text="Projects"
+              className="font-bold text-3xl text-[#0a2c42]"
+            />
 
             <AnimatedCopy>
               <p className="text-3xl text-gray-300">

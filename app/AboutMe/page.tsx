@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import AnimatedCopy from "./AnimatedCopy";
 import Image from "next/image";
 import { useTransform, motion } from "framer-motion";
+import AnimatedCopy from "@/components/AnimatedCopy";
+import FadeInOnScroll from "@/components/FadeInOnScroll";
 
 type AboutProps = {
   scrollYProgress?: unknown;
@@ -22,7 +23,10 @@ const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
       style={{ scale, rotate }}
       className="h-screen py-[20px]"
     >
-      <div className="text-center space-y-3 px-6 sm:px-14">
+      <FadeInOnScroll
+        delay={0.1}
+        className="text-center space-y-3 px-6 sm:px-14"
+      >
         <p className="font-bold text-3xl text-[#0a2c42]">About Me</p>
 
         <div className="relative">
@@ -61,7 +65,7 @@ const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
             </div>
           </div>
         </div>
-      </div>
+      </FadeInOnScroll>
     </motion.div>
   );
 });
