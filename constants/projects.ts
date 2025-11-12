@@ -73,18 +73,6 @@ export const ytCardDetails = [
     },
   },
   {
-    thumbnail: "/images/projects/jtech-task/jtech-task-thumbnail.jpg",
-    title: "JTech Task Management System",
-    desc: "JTech Task Management System is a daily and monthly task and schedule management application with core features for account, member, schedule, and task management. It was developed using Vue.js 3 and Laravel API as a skill-enhancement project.",
-    type: "yt",
-    more: {
-      id: "dop_-klmo_s",
-      descs: [
-        "Built a Task Management System using Vue.js 3 Composition API and Laravel API. Feature comprehensive management of accounts, scheules, and tasks.",
-      ],
-    },
-  },
-  {
     thumbnail: "/images/projects/java-bengture/javabengture-thumbnail.jpg",
     title: "JavaBengture",
     desc: "Created a gamified Android mobile application using Java and Firebase Realtime Database to teach Java programming while promoting local cultural heritage.",
@@ -93,18 +81,6 @@ export const ytCardDetails = [
       id: "wzNcvCDUH1U",
       descs: [
         "JavaBengture: Gamified Java learning application for Android. Used Android Studio/Java and Firebase Real-time Database for dynamic content, integrating cultural heritage elements.",
-      ],
-    },
-  },
-  {
-    thumbnail: "/images/projects/taxicle/taxicle-thumbnail.jpg",
-    title: "Taxicle",
-    desc: "Developed a three-part tricycle booking system for Android (User, Driver, Admin) using Java, Firebase, and Mapbox, enabling real-time booking and robust control.",
-    type: "yt",
-    more: {
-      id: "76vqKWuWRiw",
-      descs: [
-        "Taxicle: Developed a three-part tricycle booking system (User, Drive, Admin). Integrated Firebase Realtime Database for real-time synchronization and Mapbox for geolocation functionalities.",
       ],
     },
   },

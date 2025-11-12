@@ -14,6 +14,7 @@ import AnimatedText from "@/components/AnimatedText";
 import Experience from "../Experience/page";
 import { certfificates } from "@/constants/certificates";
 import Certificate from "@/components/cards/Certificate";
+import Footer from "@/components/footer";
 
 export default function Index() {
   const container = useRef<HTMLElement | null>(null);
@@ -120,6 +121,8 @@ export default function Index() {
             })}
           </div>
         </section>
+
+        <Footer />
       </main>
     </ReactLenis>
   );
