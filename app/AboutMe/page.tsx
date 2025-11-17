@@ -2,20 +2,30 @@
 
 import React from "react";
 import Image from "next/image";
-import { useTransform, motion } from "framer-motion";
+import {
+  useTransform,
+  motion,
+  MotionValue,
+  useMotionValue,
+} from "framer-motion";
 import AnimatedCopy from "@/components/AnimatedCopy";
 import FadeInOnScroll from "@/components/FadeInOnScroll";
 
 type AboutProps = {
-  scrollYProgress?: unknown;
+  scrollYProgress?: MotionValue<number>;
 };
 
 const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
   { scrollYProgress },
   ref
 ) {
-  const scale = useTransform(scrollYProgress as any, [0, 1], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress as any, [0, 1], [5, 0]);
+  // Create a fallback MotionValue
+  const fallback = useMotionValue(0);
+
+  const progress = scrollYProgress ?? fallback;
+
+  const scale = useTransform(progress, [0, 1], [0.8, 1]);
+  const rotate = useTransform(progress, [0, 1], [5, 0]);
 
   return (
     <motion.div
