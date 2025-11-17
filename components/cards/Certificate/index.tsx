@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "./style.module.scss";
-import { useTransform, motion, useScroll } from "framer-motion";
+import { useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
