@@ -31,7 +31,7 @@ const navItems = [
   },
 ];
 
-export default function index() {
+export default function Index() {
   const { sectionName } = useMenuActions();
 
   return (
