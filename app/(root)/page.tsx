@@ -3,7 +3,7 @@
 import AnimatedCopy from "@/components/AnimatedCopy";
 import Project from "@/components/cards/Project";
 import TechLogo from "@/components/cards/TechLogo";
-import { useScroll } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import ReactLenis from "lenis/react";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
@@ -14,7 +14,6 @@ import AnimatedText from "@/components/AnimatedText";
 import Experience from "../Experience/page";
 import { certfificates } from "@/constants/certificates";
 import Certificate from "@/components/cards/Certificate";
-import Footer from "@/components/footer";
 
 export default function Index() {
   const container = useRef<HTMLElement | null>(null);
@@ -121,8 +120,6 @@ export default function Index() {
             })}
           </div>
         </section>
-
-        <Footer />
       </main>
     </ReactLenis>
   );

@@ -21,4 +21,26 @@ export const certfificates = [
     link: "https://www.coursera.org/account/accomplishments/certificate/ANXBSAS57WW2",
     color: "#977F6D",
   },
+  {
+    id: "2764a101-79a9-41ac-aca6-15db5d5de4c4",
+    title: "The Ultimate Next.js 16 Course",
+    description:
+      "Completed a comprehensive, project-based certification covering advanced Next.js 16 concepts — including server & client components, route handlers, server actions, state management, and performance optimizations. Applied knowledge by building a full-scale “DevOverflow” app with features like authentication, AI integration, and real-time voting.",
+    organization_name: "JSMastery",
+    logo: "/images/jsm-logo.png",
+    date: "Nov 2025",
+    link: "https://jsmastery.com/certificate?course=the-ultimate-next-js-15-course&url=/assets/content/certificates/November-16-2025-140304-TheUltimateNext.js16Course-699970cd-e5a7-49d7-afb5-fedb71eb56d3.png",
+    color: "#D94F3D",
+  },
+  {
+    id: "4MKZ131125",
+    title: "ReactJSFoundations Course",
+    description:
+      "Successfully completed a foundational ReactJS program covering core concepts such as components, props, state management, lifecycle behavior, hooks, and building reusable UI elements. Gained hands-on experience creating interactive, component-driven interfaces following modern React best practices.",
+    organization_name: "ScholarHat",
+    logo: "/images/thescholarhat_logo.jpg",
+    date: "Nov 2024",
+    link: "https://drive.google.com/file/d/1uWYgAAENADDkX9DKDcyEc2s73Pe6KMtL/view?usp=sharing",
+    color: "#1A3C40",
+  },
 ];
