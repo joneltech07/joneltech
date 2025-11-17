@@ -3,22 +3,33 @@
 import React from "react";
 import LottieClientWrapper from "@/components/lotties/LottieClientWrapper";
 import Image from "next/image";
-import { useTransform, motion } from "framer-motion";
+import {
+  useTransform,
+  motion,
+  MotionValue,
+  useMotionValue,
+} from "framer-motion";
 import FadeInOnScroll from "@/components/FadeInOnScroll";
 
 type HomeProps = {
-  scrollYProgress?: unknown;
+  scrollYProgress?: MotionValue<number>;
 };
 
 const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
   { scrollYProgress },
   ref
 ) {
-  const scale = useTransform(scrollYProgress as any, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress as any, [0, 1], [0, -5]);
+  // ✔ fallback MotionValue if parent didn't pass one
+  const fallback = useMotionValue(0);
+  const progress = scrollYProgress ?? fallback;
+
+  // ✔ No "any" usage
+  const scale = useTransform(progress, [0, 1], [1, 0.8]);
+  const rotate = useTransform(progress, [0, 1], [0, -5]);
+
   return (
     <motion.div
-      ref={ref as React.Ref<HTMLDivElement>}
+      ref={ref}
       style={{ scale, rotate }}
       className="h-screen sticky top-0"
     >
@@ -37,6 +48,7 @@ const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
             </span>
           </p>
         </FadeInOnScroll>
+
         <div className="flex-1/2 flex justify-center">
           <div className="rounded-full overflow-hidden hidden md:block">
             <FadeInOnScroll delay={0.3} yOffset={100} duration={1.2}>

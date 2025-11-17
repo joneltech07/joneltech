@@ -3,7 +3,7 @@
 import AnimatedCopy from "@/components/AnimatedCopy";
 import Project from "@/components/cards/Project";
 import TechLogo from "@/components/cards/TechLogo";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 import ReactLenis from "lenis/react";
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
@@ -16,7 +16,8 @@ import { certfificates } from "@/constants/certificates";
 import Certificate from "@/components/cards/Certificate";
 
 export default function Index() {
-  const container = useRef<HTMLElement | null>(null);
+  const container = useRef<HTMLDivElement | null>(null);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -28,24 +29,23 @@ export default function Index() {
   const experienceRef = useRef<HTMLDivElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
 
-  // Map section names to their corresponding Refs
-  const sectionRefs = {
-    home: container,
-    about: aboutRef,
-    stack: stackRef,
-    experience: experienceRef,
-    projects: projectRef,
-  };
-
   useEffect(() => {
     const lenis = new Lenis();
 
-    function raf(time) {
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf);
+
+    const sectionRefs = {
+      home: container,
+      about: aboutRef,
+      stack: stackRef,
+      experience: experienceRef,
+      projects: projectRef,
+    };
 
     initializeRefsStore(sectionRefs);
   }, []);
@@ -90,7 +90,7 @@ export default function Index() {
 
             <AnimatedCopy colorFinal="#f2f2f2">
               <p className="text-3xl text-gray-300">
-                Things I&apos;ve buid so far
+                Things I&apos;ve built so far
               </p>
             </AnimatedCopy>
           </div>
@@ -107,6 +107,7 @@ export default function Index() {
           <div className="relative">
             {certfificates.map((project, i) => {
               const targetScale = 1 - (certfificates.length - i) * 0.05;
+
               return (
                 <Certificate
                   key={`p_${i}`}
