@@ -30,7 +30,7 @@ import FadeInOnScroll from "../FadeInOnScroll";
 
 interface More {
   id?: string;
-  images?: string[];
+  images?: string[]; // optional
   descs: string[];
 }
 
@@ -150,7 +150,7 @@ export default function ProjectItem({
                 yOffset={10}
                 className="relative flex-1 p-[30px]"
               >
-                {type == "img" ? (
+                {type === "img" && more.images?.length ? (
                   <Carousel
                     className="p-0"
                     plugins={[
@@ -160,15 +160,19 @@ export default function ProjectItem({
                     ]}
                   >
                     <CarouselContent>
-                      {more?.images.map((image, idx) => (
+                      {more.images.map((image, idx) => (
                         <CarouselItem key={idx}>
                           <div className="p-0">
                             <Card className="border-0">
                               <CardContent className="flex aspect-auto items-center justify-center p-0">
-                                <a href={image} target="_blank">
+                                <a
+                                  href={image}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
                                   <Image
                                     src={image}
-                                    alt={image}
+                                    alt={`Project image ${idx + 1}`}
                                     width={500}
                                     height={100}
                                     className="object-fill rounded-2xl overflow-hidden"
@@ -185,7 +189,7 @@ export default function ProjectItem({
                   </Carousel>
                 ) : (
                   <div className="hidden md:flex md:justify-center w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl">
-                    {more?.id && (
+                    {more.id && (
                       <YouTubeEmbed
                         videoid={more.id}
                         height={200}

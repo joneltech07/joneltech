@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 type AnimatedTextProps = {
   text: string | string[];
-  el?: keyof JSX.IntrinsicElements;
+  el?: keyof HTMLElementTagNameMap;
   className?: string;
   once?: boolean;
   repeatDelay?: number;
@@ -39,11 +39,12 @@ export default function AnimatedText({
 }: AnimatedTextProps) {
   const controls = useAnimation();
   const textArray = Array.isArray(text) ? text : [text];
-  const ref = useRef(null);
+  const ref = useRef<HTMLSpanElement | null>(null);
   const isInView = useInView(ref, { amount: 0.5, once });
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
+
     const show = () => {
       controls.start("visible");
       if (repeatDelay) {
@@ -60,8 +61,10 @@ export default function AnimatedText({
       controls.start("hidden");
     }
 
-    return () => clearTimeout(timeout);
-  }, [isInView]);
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [isInView, controls, repeatDelay]);
 
   return (
     <Wrapper className={className}>

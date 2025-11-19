@@ -1,38 +1,10 @@
-import React, { useState } from "react";
-import styles from "./style.module.scss";
+"use client";
+import React from "react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { menuSlide } from "../anim";
-import Link from "./Link";
-import Curve from "./Curve";
-import Footer from "./Footer";
-import { useMenuActions } from "@/store/useMenuStore";
+import { menuSlide, slide, scale } from "../anim";
 
-const navItems = [
-  {
-    title: "Home",
-    href: "home",
-  },
-  {
-    title: "About Me",
-    href: "about",
-  },
-  {
-    title: "Tech Stack",
-    href: "stack",
-  },
-  {
-    title: "Experience",
-    href: "experience",
-  },
-  {
-    title: "Projects",
-    href: "projects",
-  },
-];
-
-export default function Index() {
-  const { sectionName } = useMenuActions();
+export default function MenuExample() {
+  const navItems = ["Home", "About", "Projects", "Contact"];
 
   return (
     <motion.div
@@ -40,26 +12,31 @@ export default function Index() {
       initial="initial"
       animate="enter"
       exit="exit"
-      className={styles.menu}
+      className="fixed top-0 left-0 w-full h-screen bg-gray-800 text-white flex flex-col items-center justify-center"
     >
-      <div className={styles.body}>
-        <div className={styles.nav}>
-          <div className={styles.header}>
-            <p>Navigation</p>
-          </div>
-          {navItems.map((data, index) => {
-            return (
-              <Link
-                key={index}
-                data={{ ...data, index }}
-                isActive={`#${sectionName}` == `#${data.href}`}
-              ></Link>
-            );
-          })}
-        </div>
-        <Footer />
-      </div>
-      <Curve />
+      {navItems.map((item, index) => (
+        <motion.div
+          key={index}
+          custom={index} // Pass index as custom to slide variants
+          variants={slide}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          className="mb-4 text-2xl font-bold"
+        >
+          {item}
+        </motion.div>
+      ))}
+
+      <motion.div
+        variants={scale}
+        initial="closed"
+        animate="open"
+        exit="closed"
+        className="mt-10 p-4 bg-blue-500 rounded-lg"
+      >
+        Call to Action
+      </motion.div>
     </motion.div>
   );
 }

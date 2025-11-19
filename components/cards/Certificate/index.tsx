@@ -1,11 +1,27 @@
 "use client";
+
 import Image from "next/image";
-import { useTransform, motion } from "framer-motion";
+import { useTransform, motion, MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 
-const Certificate = ({
+interface CertificateProps {
+  i: number;
+  title: string;
+  description: string;
+  organization_name: string;
+  color: string;
+  link: string;
+  logo: string;
+  date: string;
+  id: string;
+  progress: MotionValue<number>;
+  range: number[];
+  targetScale: number;
+}
+
+const Certificate: React.FC<CertificateProps> = ({
   i,
   title,
   description,
@@ -19,7 +35,7 @@ const Certificate = ({
   range,
   targetScale,
 }) => {
-  const container = useRef(null);
+  const container = useRef<HTMLDivElement | null>(null);
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -35,7 +51,6 @@ const Certificate = ({
         }}
         className="flex flex-col relative -top-[25%] w-[1000px] h-[400px] rounded-[25px] p-[50px] origin-top"
       >
-        {/* <h2>{title}</h2> */}
         <div className="flex flex-col gap-4">
           <div className="p-4 flex-1 flex gap-4 rounded-2xl bg-white">
             <div>
@@ -43,7 +58,7 @@ const Certificate = ({
                 src={logo}
                 width={50}
                 height={50}
-                alt={logo}
+                alt={title}
                 className="rounded"
               />
             </div>
@@ -62,9 +77,8 @@ const Certificate = ({
             className="rounded-full w-[150px] h-7 text-xs bg-transparent font-bold text-white"
             variant="outline"
           >
-            <a href={link} target="_blank">
-              Show credential
-              <ExternalLink />
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              Show credential <ExternalLink />
             </a>
           </Button>
         </div>
