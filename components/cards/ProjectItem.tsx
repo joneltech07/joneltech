@@ -113,10 +113,7 @@ export default function ProjectItem({
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button
-              variant="outline"
-              className="w-[100px] h-7 text-xs rounded-full"
-            >
+            <Button className="w-[100px] h-7 text-xs rounded-full bg-[#194660]">
               More details
             </Button>
           </DialogTrigger>
