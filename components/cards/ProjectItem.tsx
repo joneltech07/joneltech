@@ -131,7 +131,7 @@ export default function ProjectItem({
               </DialogHeader>
             </VisuallyHidden.Root>
 
-            <div className="flex flex-wrap justify-center items-center">
+            <div className="flex flex-col md:flex-row flex-wrap justify-center items-center">
               <FadeInOnScroll
                 delay={0.7}
                 yOffset={10}
