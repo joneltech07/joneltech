@@ -3,6 +3,7 @@ import styles from "./style.module.scss";
 import Nav from "./nav";
 import { AnimatePresence } from "framer-motion";
 import { useMenuActions } from "@/store/useMenuStore";
+import { cn } from "@/lib/utils";
 
 export default function Header() {
   // 2. Get the menu open/close state and toggle function fro;m Zustand
@@ -10,7 +11,7 @@ export default function Header() {
 
   return (
     <>
-      <div className={styles.main}>
+      <div className={cn(styles.main, "hidden md:block")}>
         <div className={styles.header}>
           <div
             onClick={() => {

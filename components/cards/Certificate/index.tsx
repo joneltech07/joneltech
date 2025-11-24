@@ -49,7 +49,7 @@ const Certificate: React.FC<CertificateProps> = ({
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className="flex flex-col relative -top-[25%] w-[1000px] h-[400px] rounded-[25px] p-[50px] origin-top"
+        className="flex flex-col relative -top-[25%] w-[1000px] h-auto md:h-[400px] rounded-[25px] p-[50px] origin-top"
       >
         <div className="flex flex-col gap-4">
           <div className="p-4 flex-1 flex gap-4 rounded-2xl bg-white">

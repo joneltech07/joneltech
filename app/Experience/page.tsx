@@ -17,7 +17,6 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
         className="py-[200px] flex items-center flex-col space-y-3 gap-4 px-6 sm:px-14"
       >
         <AnimatedText
-          once
           text="Experience"
           className="font-bold text-3xl text-[#0a2c42]"
         />
@@ -27,7 +26,7 @@ const Experience = React.forwardRef<HTMLDivElement, ExperienceProps>(
             delay={0.1 * (idx + 1)}
             yOffset={10}
             key={idx}
-            className="shadow rounded-2xl flex gap-4 p-10 w-[70%]"
+            className="shadow-none md:shadow rounded-2xl flex flex-col md:flex-row gap-4 p-3 md:p-10 w-full md:w-[70%]"
           >
             <div className="p-4 flex-1 rounded-2xl bg-slate-100">
               <p className="rounded-full bg-[#0d97c5] text-sm px-2 font-bold text-white inline">

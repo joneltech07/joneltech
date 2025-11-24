@@ -98,13 +98,13 @@ export default function ProjectItem({
     >
       <div
         ref={thumbnailRef}
-        className="hidden md:block w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl"
+        className="w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl"
       >
         <Image src={thumbnail} alt={thumbnail} height={200} width={360} />
       </div>
       <div
         ref={textRef}
-        className="p-3 md:w-[500px] flex flex-col gap-3 text-start"
+        className="p-3 md:w-[500px] flex flex-col gap-3 items-center md:items-start text-start"
       >
         <p className="font-bold text-1xl text-center md:text-start">{title}</p>
         <div className="flex-1 flex">
@@ -113,12 +113,12 @@ export default function ProjectItem({
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="w-[100px] h-7 text-xs rounded-full bg-[#194660]">
+            <Button className="w-[100%] md:w-[100px] h-9 md:h-7 text-xs rounded-full bg-[#194660]">
               More details
             </Button>
           </DialogTrigger>
           <DialogContent
-            className="sm:max-w-[100%] h-screen border-none shadow-none"
+            className="sm:max-w-[100%] md:h-screen border-none shadow-none"
             style={{ zIndex: 9999 }}
           >
             <VisuallyHidden.Root>
@@ -132,8 +132,12 @@ export default function ProjectItem({
             </VisuallyHidden.Root>
 
             <div className="flex flex-wrap justify-center items-center">
-              <FadeInOnScroll delay={0.7} yOffset={10} className="flex-1 p-20">
-                <ul className="list-disc">
+              <FadeInOnScroll
+                delay={0.7}
+                yOffset={10}
+                className="flex-1 md:p-20"
+              >
+                <ul className="list-disc w-[70%]">
                   {more.descs.map((desc, idx) => (
                     <li key={idx} className="text-wrap text-xs">
                       {desc}
@@ -145,7 +149,7 @@ export default function ProjectItem({
               <FadeInOnScroll
                 delay={0.3}
                 yOffset={10}
-                className="relative flex-1 p-[30px]"
+                className="relative flex-1 p-3 md:p-[30px]"
               >
                 {type === "img" && more.images?.length ? (
                   <Carousel
@@ -185,7 +189,7 @@ export default function ProjectItem({
                     <CarouselNext />
                   </Carousel>
                 ) : (
-                  <div className="hidden md:flex md:justify-center w-full md:w-[360px] overflow-hidden rounded-none md:rounded-2xl">
+                  <div className="flex justify-center items-center w-[80%] md:w-[360px] overflow-hidden rounded-none md:rounded-2xl">
                     {more.id && (
                       <YouTubeEmbed
                         videoid={more.id}

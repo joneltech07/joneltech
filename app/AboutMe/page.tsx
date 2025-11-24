@@ -40,7 +40,7 @@ const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
         <p className="font-bold text-3xl text-[#0a2c42]">About Me</p>
 
         <div className="relative">
-          <div className="rounded-3xl bg-[#0a2c42] p-[120px]">
+          <div className="rounded-3xl bg-[#0a2c42] p-[50px] md:p-[120px]">
             <div className="w-full flex">
               <div className="flex flex-3 flex-col">
                 <AnimatedCopy
@@ -48,7 +48,7 @@ const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
                   colorAccent="#000000"
                   colorFinal="#ffffff"
                 >
-                  <p className="text-3xl text-gray-300 text-wrap pb-[30px] text-start">
+                  <p className="text-sm md:text-3xl text-gray-300 text-wrap pb-[30px] text-start">
                     I&apos;m a highly versatile Full-Stack Developer
                     specializing in performance optimization and system
                     modernization. Seeking a challenging Web Developer role to
@@ -62,13 +62,22 @@ const AboutMe = React.forwardRef<HTMLDivElement, AboutProps>(function AboutMe(
                 </p>
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 flex">
                 <Image
                   src="/images/profile-photo.png"
                   alt="Profile Photo"
                   width={400}
                   height={400}
-                  className="object-contain absolute bottom-0 right-[50px]"
+                  className="object-contain absolute bottom-0 right-[50px] hidden md:block"
+                  priority={true}
+                />
+
+                <Image
+                  src="/images/profile-photo.png"
+                  alt="Profile Photo"
+                  width={180}
+                  height={200}
+                  className="object-contain absolute bottom-0 right-0 block md:hidden"
                   priority={true}
                 />
               </div>

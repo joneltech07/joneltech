@@ -63,7 +63,6 @@ export default function Index() {
         >
           <div className="text-center space-y-3 px-6 sm:px-14">
             <AnimatedText
-              once
               text="My Tech Stack"
               className="font-bold text-3xl text-white"
             />
@@ -83,7 +82,6 @@ export default function Index() {
         <section ref={projectRef}>
           <div className="text-center space-y-3 bg-[#194660] h-60 flex flex-col justify-center">
             <AnimatedText
-              once
               text="Projects"
               className="font-bold text-3xl text-white"
             />
@@ -99,7 +97,6 @@ export default function Index() {
 
         <section className="flex flex-col relative bg-gray-50">
           <AnimatedText
-            once
             text="Certification"
             className="font-bold text-3xl text-center text-[#0a2c42] sticky top-1 py-10"
           />

@@ -14,7 +14,7 @@ export default function Project() {
           key={idx}
           delay={idx * 0.1}
           yOffset={10}
-          className="w-full"
+          className="w-full px-3 md:p-0"
         >
           <ProjectItem
             thumbnail={thumbnail}

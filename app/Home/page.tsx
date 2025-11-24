@@ -31,9 +31,9 @@ const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
     <motion.div
       ref={ref}
       style={{ scale, rotate }}
-      className="h-screen sticky top-0"
+      className="h-screen flex sticky top-0"
     >
-      <div className="flex flex-wrap justify-center px-6 pb-6 pt-10 sm:px-14">
+      <div className="flex flex-1 flex-wrap justify-center items-center px-6 pb-6 pt-10 sm:px-14">
         <FadeInOnScroll
           delay={0.1}
           yOffset={10}
@@ -43,7 +43,7 @@ const Home = React.forwardRef<HTMLDivElement, HomeProps>(function Home(
           <p className="text-center md:text-start text-gray-500 text-wrap md:text-[28px] font-normal">
             I&apos;m here to support your business through web development,
             offering solutions and a commitment to{" "}
-            <span className="font-bold text-2xl md:text-7xl text-[#0d97c5]">
+            <span className="font-bold text-5xl block md:inline md:text-7xl text-[#0d97c5]">
               Excellence
             </span>
           </p>
